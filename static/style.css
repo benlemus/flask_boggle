@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* TITLE */
+.titleContainer {
+  /* background-color: red; */
+  height: 7vh;
+  text-align: center;
+}
+
+.titleContainer h1 {
+  font-size: 40px;
+}
+
+/* GAME BOARD */
+.boardContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.boardContainer table {
+  font-size: 70px;
+  border-collapse: collapse;
+}
+
+.boardContainer td {
+  border: 1px solid black;
+  width: 100px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+}
