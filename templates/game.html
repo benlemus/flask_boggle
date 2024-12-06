@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+<!-- HEAD -->
+{% block head %}
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+{% endblock %}
+
 <!-- TITLE -->
 {% block title %}Play!{% endblock %}
 
@@ -16,4 +22,37 @@
     {% endfor %}
   </table>
 </div>
+
+<div class="pointContainer">
+  <h3 id="timer">60</h3>
+  <h3 id="points">Points: 0</h3>
+</div>
+
+<div class="resultContainer">
+  <h3 id="result"></h3>
+</div>
+
+<form action="/handle-form" class="guessForm" method="POST">
+  <label for="guess">Enter Guess: </label>
+  <input type="text" id="guess" name="guess" />
+  <br />
+  <button id="submitBtn">Submit</button>
+</form>
+
+<form action="/reset-game" class="resetForm">
+  <button id="resetBtn">Reset</button>
+</form>
+
+<div class="highscores_inactive" id="highscores">
+  <table id="highscoreTable">
+    <thead>
+      <th>Game</th>
+      <th>Points</th>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<!-- SCRIPTS -->
+<script src="{{ url_for('static', filename='app.js') }}"></script>
 {% endblock %}

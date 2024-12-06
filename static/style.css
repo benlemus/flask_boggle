@@ -31,7 +31,32 @@
   text-align: center;
 }
 
+/* FORM */
+.guessForm {
+  text-align: center;
+  padding-top: 2vh;
+  font-size: 30px;
+}
+
+.guessForm #guess {
+  font-size: 20px;
+}
+
+.guessForm button {
+  font-size: 17px;
+}
+
+/* HIGHSCORES */
+.highscores_deactive {
+  display: none;
+}
+
+.highscores_active {
+  display: block;
+}
+
 /* FOOTER */
 footer {
   text-align: center;
+  padding-top: 2vh;
 }
