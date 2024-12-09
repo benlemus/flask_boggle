@@ -53,23 +53,45 @@ function update_highscore() {
     .get("/update-highscores")
     .then(function (res) {
       let data = res.data;
+
       let tBody = document.querySelector("#tableBody");
 
       tBody.innerHTML = "";
 
-      for (const [game, point] of Object.entries(data)) {
+      for (const [game, point] of Object.entries(data).sort(
+        ([, a], [, b]) => b - a
+      )) {
         const newRow = document.createElement("tr");
-
         const gameCell = document.createElement("td");
         gameCell.innerText = game;
-
         const pointCell = document.createElement("td");
         pointCell.innerText = point;
-
         newRow.appendChild(gameCell);
         newRow.appendChild(pointCell);
         tBody.appendChild(newRow);
       }
+
+      // let data = res.data;
+
+      // let tBody = document.querySelector("#tableBody");
+
+      // tBody.innerHTML = "";
+
+      // for (const [game, point] of Object.entries(data).sort(
+      //   ([, a], [, b]) => b - a
+      // )) {
+      //   const newRow = document.createElement("tr");
+
+      //   const gameCell = document.createElement("td");
+      //   gameCell.innerText = game;
+
+      //   const pointCell = document.createElement("td");
+      //   pointCell.innerText = point;
+
+      //   newRow.appendChild(gameCell);
+      //   newRow.appendChild(pointCell);
+      //   tBody.appendChild(newRow);
+      // }
     })
     .catch((err) => {
       console.error("Error fetching high scores:", err);

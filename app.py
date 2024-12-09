@@ -22,6 +22,7 @@ def show_board():
         session['board'] = game_board
         session['result'] = ''
         session['points'] = 0
+        # session['highscores'] = {}
         session['highscores'] = {}
         session['game_num'] = 1
     
@@ -49,7 +50,6 @@ def get_highscores():
     session['highscores'] = dict(sorted(highscore.items(), key=lambda x:x[1], reverse=True))
     
     return jsonify(session['highscores'])
-
 
 @app.route('/reset-game')
 def reset_game():
