@@ -31,7 +31,17 @@
   text-align: center;
 }
 
-/* FORM */
+/* POINTS */
+.pointContainer {
+  text-align: center;
+  padding-top: 15px;
+}
+/* RESULTS */
+.resultContainer {
+  text-align: center;
+  padding-top: 10px;
+}
+/* GUESS FORM */
 .guessForm {
   text-align: center;
   padding-top: 2vh;
@@ -46,6 +56,13 @@
   font-size: 17px;
 }
 
+/* RESET FORM */
+.resetForm {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
 /* HIGHSCORES */
 .highscores_deactive {
   display: none;
@@ -53,6 +70,15 @@
 
 .highscores_active {
   display: block;
+}
+
+#highscores {
+  display: flex;
+  justify-content: center;
+}
+
+#highscores caption {
+  text-decoration: underline;
 }
 
 /* FOOTER */

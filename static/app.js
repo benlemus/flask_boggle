@@ -3,6 +3,7 @@ const form = document.querySelector(".guessForm");
 const formBtn = document.querySelector("#submitBtn");
 const show_timer = document.querySelector("#timer");
 const resetForm = document.querySelector(".resetForm");
+const tableOl = document.querySelector(".tableOl");
 
 let count = 60;
 let timer_status = "deactive";
@@ -13,7 +14,7 @@ form.addEventListener("submit", function (e) {
   if (timer_status == "deactive") {
     const timer = setInterval(function () {
       count--;
-      show_timer.innerText = count;
+      show_timer.innerText = "Time: " + count;
 
       if (count == 0) {
         formBtn.disabled = true;
@@ -53,6 +54,7 @@ function update_highscore() {
     .get("/update-highscores")
     .then(function (res) {
       let data = res.data;
+      let placement = 1;
 
       let tBody = document.querySelector("#tableBody");
 
@@ -62,13 +64,18 @@ function update_highscore() {
         ([, a], [, b]) => b - a
       )) {
         const newRow = document.createElement("tr");
+        const placementCell = document.createElement("td");
+        placementCell.innerText = placement + ".";
         const gameCell = document.createElement("td");
-        gameCell.innerText = game;
+        gameCell.innerText = "Game " + game;
         const pointCell = document.createElement("td");
         pointCell.innerText = point;
+        newRow.appendChild(placementCell);
         newRow.appendChild(gameCell);
         newRow.appendChild(pointCell);
         tBody.appendChild(newRow);
+
+        placement += 1;
       }
     })
     .catch((err) => {
